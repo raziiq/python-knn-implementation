@@ -12,7 +12,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
-from KNearestNeighbors import KNN
+from KNearestNeighbors import KNNClassifier
 
 iris = datasets.load_iris()
 
@@ -21,7 +21,7 @@ y = pd.DataFrame(data=iris.target, columns=["class"])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=7)
 
-knn = KNN(k = 3)
+knn = KNNClassifier(k = 3)
 knn.fit(X_train, y_train)
 y_pred = knn.predict(X_test)
 c_report = classification_report(y_test, y_pred)
